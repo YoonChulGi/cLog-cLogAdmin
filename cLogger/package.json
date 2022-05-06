@@ -1,0 +1,28 @@
+{
+		"name": "cambologger",
+		"version": "1.0.0",
+		"description": "Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)\r  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))",
+		"main": "app.js",
+		"scripts": {
+				"test": "echo \"Error: no test specified\" && exit 1"
+		},
+		"author": "yohan",
+		"license": "ISC",
+		"dependencies": {
+				"body-parser": "^1.18.2",
+				"cookie-parser": "^1.4.3",
+				"crypto": "^1.0.1",
+				"ejs": "^2.5.8",
+				"errorhandler": "^1.5.0",
+				"express": "^4.16.2",
+				"express-error-handler": "^1.1.0",
+				"express-session": "^1.15.6",
+				"http": "0.0.0",
+				"mongodb": "^3.0.2",
+				"mongoose": "^5.0.4",
+				"mysql": "^2.15.0",
+				"npm": "^5.8.0",
+				"path": "^0.12.7",
+				"serve-static": "^1.13.2"
+		}
+}

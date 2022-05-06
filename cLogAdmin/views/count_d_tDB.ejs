@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cambo - count_d_tDB</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+year = <%= year %>
+month = <%= month %>
+
+<% 
+	logarr.sort(function(a,b){
+		return a._id < b._id ? -1 : a._id > b._id ? 1: 0;
+	});
+	
+	
+%>
+<table>
+	<tr>
+			<th>시간/날짜</th>
+		<%for(let i=1;i<=31;i++) {%>
+			<th><%=i%></th>
+		<%}%>
+	</tr>
+	<%try {%>
+	<%for(let i=0;i<2880;i++) {%>
+	<tr>
+		<td><%=logarr[i].TimeDate%></td>
+		<td><%=logarr[i].d1%></td>
+		<td><%=logarr[i].d2%></td>
+		<td><%=logarr[i].d3%></td>
+		<td><%=logarr[i].d4%></td>
+		<td><%=logarr[i].d5%></td>
+		<td><%=logarr[i].d6%></td>
+		<td><%=logarr[i].d7%></td>
+		<td><%=logarr[i].d8%></td>
+		<td><%=logarr[i].d9%></td>
+		<td><%=logarr[i].d10%></td>
+		<td><%=logarr[i].d11%></td>
+		<td><%=logarr[i].d12%></td>
+		<td><%=logarr[i].d13%></td>
+		<td><%=logarr[i].d14%></td>
+		<td><%=logarr[i].d15%></td>
+		<td><%=logarr[i].d16%></td>
+		<td><%=logarr[i].d17%></td>
+		<td><%=logarr[i].d18%></td>
+		<td><%=logarr[i].d19%></td>
+		<td><%=logarr[i].d20%></td>
+		<td><%=logarr[i].d21%></td>
+		<td><%=logarr[i].d22%></td>
+		<td><%=logarr[i].d23%></td>
+		<td><%=logarr[i].d24%></td>
+		<td><%=logarr[i].d25%></td>
+		<td><%=logarr[i].d26%></td>
+		<td><%=logarr[i].d27%></td>
+		<td><%=logarr[i].d28%></td>
+		<td><%=logarr[i].d29%></td>
+		<td><%=logarr[i].d30%></td>
+		<td><%=logarr[i].d31%></td>
+	</tr>
+	<%}%>
+	<%} catch(exception){%>
+	   <p>no data</p>
+	<%}%>
+</table>
+
+
+</body>
+</html>

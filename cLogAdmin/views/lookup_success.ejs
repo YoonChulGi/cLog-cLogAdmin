@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cambo - 로그조회</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+year = <%= year%>
+month = <%= month %>
+<% let i = 0;
+   let size = 0; 
+   let a=0;
+   let j =1;
+   let logObj = new Array();
+   let x = 0;
+%>
+<table>
+	<tr>
+		<th>uid</th>
+		<th>PhoneNo</th>
+		<th>startTime</th>
+		<th>EndTime</th>
+	</tr>
+	<% for( i=0 ; i<loglist.length ; i++) {%>
+	
+		
+		<%if(loglist[i].classify == "0") {
+			for(j=i+1;j<loglist.length;j++) {
+				if(loglist[j].uid == loglist[i].uid && loglist[j].classify == "1") {
+					%>
+					<tr>
+					<td id="uid<%=x%>"><%= loglist[i].uid %></td>
+			  		<td id="phoneNo<%=x%>"><%= loglist[i].phoneNo %></td>
+			  		<td id="StartTime<%=x%>"><%=loglist[i].DateTime%></td>
+					<td id="EndTime<%=x%>"><%=loglist[j].DateTime%></td>
+					</tr><%
+					x++
+					break;
+				} else if(loglist[j].uid == loglist[i].uid && loglist[j].classify == "0") {
+					//i++;
+					break;
+				} 
+			}
+		}%>
+	<%}x--;%>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cambo - odered로그조회</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+year = <%= year %>
+month = <%= month %>
+<% 
+	let i = 0;
+   	let size = 0; 
+	let a=0;
+	let j =1;
+	let logObj = new Array();
+	let x = 0;
+   
+	var sortingField = "startTime";
+   
+	loglist.sort(function(a,b) {
+		return a[sortingField] - b[sortingField];
+	});
+   
+%>
+<table>
+	<tr>
+		<th>uid</th>
+		<th>PhoneNo</th>
+		<th>startTime</th>
+		<th>EndTime</th>
+		<th>usageTime</th>
+	</tr>
+	<%for(let i=0;i<loglist.length;i++) {%>
+	<tr>
+		<td><%=loglist[i].uid%></td> <!-- uid -->
+		<td><%=loglist[i].phoneNo%></td><!-- phoneNo -->
+		<td><%=loglist[i].startTime%></td><!-- startTime -->
+		<td><%=loglist[i].EndTime%></td><!-- EndTime -->
+		<%if(loglist[i].EndTime - loglist[i].startTime > 0) {%>
+			<td><%=(new Date(loglist[i].EndTime.toString()) - new Date(loglist[i].startTime.toString()))/1000%>초</td>
+		<%}else{%>
+			<td>0초</td>
+		<%}%>
+	</tr>	
+	<%}%>
+	
+</table>
+
+
+</body>
+</html>

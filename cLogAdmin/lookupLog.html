@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cambo - 로그조회</title>
+
+</head>
+<body>
+
+<h3>일반 로그조회</h3>
+<form method="post" id="frm1" name="frm" action="lookup" >
+	<select id="year1" name="year1">
+		<option value="2018">2018</option>
+		<option value="2019">2019</option>
+		<option value="2020">2020</option>
+		<option value="2021">2021</option>
+		<option value="2022">2022</option>
+		<option value="2023">2023</option>
+		<option value="2024">2024</option>
+		<option value="2025">2025</option>
+		<option value="2026">2026</option>
+		<option value="2027">2027</option>
+	</select>
+	년
+	<select id="month1" name="month1">
+  		<option value="1">1</option>
+  		<option value="2">2</option>
+  		<option value="3">3</option>
+  		<option value="4">4</option>
+  		<option value="5">5</option>
+  		<option value="6">6</option>
+  		<option value="7">7</option>
+  		<option value="8">8</option>
+  		<option value="9">9</option>
+  		<option value="10">10</option>
+  		<option value="11">11</option>
+  		<option value="12">12</option>
+	</select>
+	월
+	<input type="submit" value="조회">
+	<input type="button" value="저장" onclick="save1()">
+	<input type="button" value="DB조회 " onclick="search1()">
+</form>
+<br>
+<h3>ordered 로그조회</h3>
+<form method="post" id="frm2" name="frm" action="orderedlookup" >
+<select id="year2" name="year2">
+		<option value="2018">2018</option>
+		<option value="2019">2019</option>
+		<option value="2020">2020</option>
+		<option value="2021">2021</option>
+		<option value="2022">2022</option>
+		<option value="2023">2023</option>
+		<option value="2024">2024</option>
+		<option value="2025">2025</option>
+		<option value="2026">2026</option>
+		<option value="2027">2027</option>
+	</select>
+	년
+	<select id="month2" name="month2">
+  		<option value="1">1</option>
+  		<option value="2">2</option>
+  		<option value="3">3</option>
+  		<option value="4">4</option>
+  		<option value="5">5</option>
+  		<option value="6">6</option>
+  		<option value="7">7</option>
+  		<option value="8">8</option>
+  		<option value="9">9</option>
+  		<option value="10">10</option>
+  		<option value="11">11</option>
+  		<option value="12">12</option>
+	</select>
+	월
+	<input type="submit" value="조회">
+	<input type="button" value="저장" onclick="save2()">
+	<input type="button" value="DB조회" onclick="search2()">	
+</form>
+
+<h3>count by date time</h3>
+<form method="post" id="frm3" name="frm" action="countbydatetime" >
+<select id="year3" name="year3">
+		<option value="2018">2018</option>
+		<option value="2019">2019</option>
+		<option value="2020">2020</option>
+		<option value="2021">2021</option>
+		<option value="2022">2022</option>
+		<option value="2023">2023</option>
+		<option value="2024">2024</option>
+		<option value="2025">2025</option>
+		<option value="2026">2026</option>
+		<option value="2027">2027</option>
+	</select>
+	년
+	<select id="month3" name="month3">
+  		<option value="1">1</option>
+  		<option value="2">2</option>
+  		<option value="3">3</option>
+  		<option value="4">4</option>
+  		<option value="5">5</option>
+  		<option value="6">6</option>
+  		<option value="7">7</option>
+  		<option value="8">8</option>
+  		<option value="9">9</option>
+  		<option value="10">10</option>
+  		<option value="11">11</option>
+  		<option value="12">12</option>
+	</select>
+	월
+	<input type="submit" value="조회">
+	<input type="button" value="저장" onclick="save3()">
+	<input type="button" value="DB조회" onclick="search3()">
+</form>
+</body>
+<script type="text/javascript">
+	
+	let sel = document.getElementById("year1"); // 일반로그 년
+	let sel2 = document.getElementById("month1"); // 일반로그 월
+	let sel3 = document.getElementById("year2"); // ordered 로그 년
+	let sel4 = document.getElementById("month2"); // ordered 로그 월
+	let sel5 = document.getElementById("year3"); // count by date time 년
+	let sel6 = document.getElementById("month3"); // count by date time 월
+	let val2;
+	let val;
+	let date = new Date();
+	let Year = date.getFullYear();
+	let Month = date.getMonth()+1;
+	for(let i=0;i<sel.options.length;i++) {
+		if(sel.options[i].value == Year) {
+			sel.options[i].selected 
+			= sel3.options[i].selected 
+			= sel5.options[i].selected 
+			= true;
+			break;
+		}
+	}
+	for(let i=0;i<sel2.options.length;i++) {
+		if(sel2.options[i].value == Month) {
+			sel2.options[i].selected 
+			= sel4.options[i].selected 
+			= sel6.options[i].selected 
+			= true;
+			break;
+		}
+	}
+</script>
+<script>
+function save1() {
+	var sel1v = document.getElementById('year1').value;
+	var sel2v = document.getElementById('month1').value;
+	if(sel2v < 10) sel2v = '0'+sel2v;
+	console.log(sel1v);
+	console.log(sel2v);
+	window.location.href = '/lookupSave?year1='+sel1v+'&month1='+sel2v;
+}
+function search1() {
+	var sel1v = document.getElementById('year1').value;
+	var sel2v = document.getElementById('month1').value;
+	if(sel2v < 10) sel2v = '0'+sel2v;
+	console.log(sel1v);
+	console.log(sel2v);
+	window.location.href = '/lookupDB?year1='+sel1v+'&month1='+sel2v;
+}
+function save2() {
+	var sel3v = document.getElementById('year2').value;
+	var sel4v = document.getElementById('month2').value;
+	if(sel4v < 10) sel4v = '0'+sel4v;
+	console.log(sel3v);
+	console.log(sel4v);
+	window.location.href = '/orderedLookupSave?year2='+sel3v+'&month2='+sel4v;
+}
+function search2() {
+	var sel3v = document.getElementById('year2').value;
+	var sel4v = document.getElementById('month2').value;
+	if(sel4v < 10) sel4v = '0'+sel4v;
+	console.log(sel3v);
+	console.log(sel4v);
+	window.location.href = '/orderedLookupDB?year2='+sel3v+'&month2='+sel4v;
+}
+function save3() {
+	var sel5v = document.getElementById('year3').value;
+	var sel6v = document.getElementById('month3').value;
+	if(sel6v<10) sel6v = '0' + sel6v;
+	console.log(sel5v);
+	console.log(sel6v);
+	window.location.href = '/countbydatetimeSave?year3='+sel5v+'&month3='+sel6v;
+}
+function search3() {
+	var sel5v = document.getElementById('year3').value;
+	var sel6v = document.getElementById('month3').value;
+	if(sel6v<10) sel6v = '0' + sel6v;
+	console.log(sel5v);
+	console.log(sel6v);
+	window.location.href = '/countbydatetimeDB?year3='+sel5v+'&month3='+sel6v;
+}
+</script>
+</html>

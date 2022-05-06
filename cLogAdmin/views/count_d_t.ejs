@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cambo - count_d_t</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+
+
+</script>
+</head>
+<body>
+month = <%= month %>
+<% 
+	let d = new Date("2018-01-01 00:00:00");
+	d.setMonth(month-1);
+	let h = d.getHours();
+	let m = d.getMinutes();
+	let s = d.getSeconds();
+%>
+<table>
+	<tr>
+			<th>시간/날짜</th>
+		<%for(let i=1;i<=31;i++) {%>
+			<th><%=i%></th>
+		<%}%>
+	</tr>
+	
+	<%for(let i=0;i<2880;i++) {%>
+	<tr>
+		<td><%=d.getHours()+":"+d.getMinutes()+ ":"+d.getSeconds()%></td>
+		<%d.setMilliseconds(d.getMilliseconds()+30000)%>
+		<%for(let j=0;j<31;j++) {%>
+			<td><%=dtArray[i][j]%></td>
+		<%}%>
+		
+	</tr>
+	<%}%>
+	
+</table>
+
+
+</body>
+</html>
